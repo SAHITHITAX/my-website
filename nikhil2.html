@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Work Assignment Form</title>
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Assignment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .form-wrapper {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-container {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Space between inputs */
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 150px;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        select, input, textarea {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 150px;
+        }
+
+        textarea {
+            resize: none;
+            height: 30px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+ .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1EBE57;
+   
+    </style>
+</head>
+<body>
+
+    <div class="form-wrapper">
+        <h2>Work Assignment Form</h2>
+        <form id="workForm" class="form-container">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="work">Work:</label>
+                <select id="work" name="work">
+                    <option value="PAN">PAN</option>
+                    <option value="TAN">TAN</option>
+                    <option value="ITR">ITR</option>
+                    <option value="GST">GST</option>
+                    <option value="ROC">ROC</option>
+                    <option value="LLP">LLP</option>
+                    <option value="LABOUR">LABOUR</option>
+                    <option value="MSME">MSME</option>
+                    <option value="DEED">DEED</option>
+                    <option value="ADHAR">ADHAR</option>
+                    <option value="COMPANY REGISTRATION">COMPANY REGISTRATION</option>
+                    <option value="EPF">EPF</option>
+                    <option value="ESI">ESI</option>
+                    <option value="OTHER">OTHER SPECIFY</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="assign">Assign to:</label>
+                <select id="assign" name="assign">
+                    <option value="NIKHIL">NIKHIL</option>
+                    <option value="ABHIGNA">ABHIGNA</option>
+                    <option value="ALEKHYA">ALEKHYA</option>
+                    <option value="RAJU">RAJU</option>
+                    <option value="SOWMYA">SOWMYA</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select id="status" name="status">
+                    <option value="PENDING">PENDING</option>
+                    <option value="NEW">NEW</option>
+                    <option value="CALL">CALL</option>
+                    <option value="WAIT">WAIT</option>
+                    <option value="COMPLTED">COMPLTED</option>
+                    <option value="NEXT YEAR">NEXT YEAR</option>
+                    <option value="DOCS">DOCS</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="remark">Remark:</label>
+                <textarea id="remark" name="remark"></textarea>
+            </div>
+
+            <div class="button-container">
+                <button type="button" onclick="submitForm()">Submit</button>
+                <button type="button" onclick="fetchData()">Retrieve Data</button>
+            </div>
+        </form>
+    </div>
+  <script>
+   function submitForm() {
+    const form = document.getElementById("workForm");
+    const formData = new FormData(form);
+    formData.append("method", "POST");  // Ensure method is POST for new entries
+
+    fetch("https://script.google.com/macros/s/AKfycbyJ2wBo2BLrgoz7l1MjyRvrxuh5fO8nzSwMedoiEBlBE-01S7N6G76WOmrAnnG9d0cj_A/exec", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);  // Show success message
+        form.reset(); // Clear form after submission
+        fetchData();  // Reload table
+    })
+    .catch(error => {
+        alert("Error submitting form: " + error);
+    });
+}
+
+
+  function fetchData() {
+    fetch("https://script.google.com/macros/s/AKfycbyJ2wBo2BLrgoz7l1MjyRvrxuh5fO8nzSwMedoiEBlBE-01S7N6G76WOmrAnnG9d0cj_A/exec")
+    .then(response => response.json())
+    .then(data => {
+        console.log("Fetched Data:", data); // Debugging
+
+        if (!Array.isArray(data)) {
+            throw new Error("Invalid data format received");
+        }
+
+        let workOptions = [...new Set(data.map(row => row.work).filter(Boolean))];
+        let assignOptions = [...new Set(data.map(row => row.assign).filter(Boolean))];
+        let statusOptions = [...new Set(data.map(row => row.status).filter(Boolean))];
+
+        let tableHeaders = ["Name", "Phone", "Email", "Work", "Assign To", "Status", "Remark", "Actions", "WhatsApp"];
+
+        let output = `
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                font-size: 18px;
+                text-align: left;
+            }
+            th, td {
+                padding: 12px;
+                border: 1px solid #ddd;
+ word-wrap: break-word;
+        white-space: normal;
+max-width: 100px;
+            }
+            th {
+                background-color: #4CAF50;
+                color: white;
+            }
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+            tr:hover {
+                background-color: #ddd;
+            }
+            select {
+                padding: 8px;
+                margin-right: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            #filterContainer {
+                margin-bottom: 10px;
+            }
+            button {
+                padding: 6px 10px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+
+
+        </style>
+
+        <h2>Retrieved Data</h2>
+        <div id="filterContainer">
+            <label>Work:</label>
+            <select id="workFilter" onchange="filterTable()">
+                <option value="">All</option>
+                ${workOptions.map(option => `<option value="${option}">${option}</option>`).join("")}
+            </select>
+
+            <label>Assign To:</label>
+            <select id="assignFilter" onchange="filterTable()">
+                <option value="">All</option>
+                ${assignOptions.map(option => `<option value="${option}">${option}</option>`).join("")}
+            </select>
+
+            <label>Status:</label>
+            <select id="statusFilter" onchange="filterTable()">
+                <option value="">All</option>
+                ${statusOptions.map(option => `<option value="${option}">${option}</option>`).join("")}
+            </select>
+        </div>
+
+        <table id="dataTable">
+            <tr>${tableHeaders.map(header => `<th>${header}</th>`).join("")}</tr>
+           ${data.map(row => {
+    const message = getWhatsAppMessage(row.name, row.phone, row.work, row.status, row.remark || "");
+    return `
+        <tr>
+            <td>${row.name || ""}</td>
+            <td>${row.phone || ""}</td>
+            <td>${row.email || ""}</td>
+            <td>${row.work || ""}</td>
+            <td>${row.assign || ""}</td>
+            <td>${row.status || ""}</td>
+            <td class="remark-cell">${row.remark || ""}</td>
+            <td>
+                <button onclick="editEntry(${row.id}, '${row.name}', '${row.phone}', '${row.email}', '${row.work}', '${row.assign}', '${row.status}', '${row.remark || ""}')">Edit</button>
+                <button onclick="deleteEntry(${row.id})">Delete</button>
+            </td>
+            <td>
+                <button style="background-color: green; color: white;" onclick="sendWhatsApp('${row.phone}', '${message}')">Send WhatsApp</button>
+            </td>
+        </tr>
+    `;
+}).join("")}
+
+        </table>`;
+
+        document.getElementById("dataDisplay").innerHTML = output;
+    })
+    .catch(error => {
+        console.error("Error fetching data:", error);
+        alert("Error fetching data: " + error.message);
+    });
+}
+
+function getWhatsAppMessage(name, phone, work, status, remark) {
+    name = name || "Customer";
+    work = work || "your task";
+    remark = remark ? String(remark).trim() : "0";  // Ensure it's treated as a string.
+
+    switch (status) {
+        case "NEW":
+            return `Hi ${name}, please send me details regarding pending ${work} work.`;
+        case "New":
+            return `Hi ${name}, please send me details regarding pending ${work} work.`;
+
+        case "PENDING":
+            return `Hi ${name}, just a reminder regarding your pending ${work}.`;
+        case "DONE":
+            return `Hi ${name}, your ${work} work has been completed successfully. Please give us a rating: https://www.justdial.com/Rangareddy/Sahithi-Tax-Consultancy-Near-Gram-Panchayat-Hayath-Nagar/040PXX40-XX40-240128082904-G1Z7_BZDET/writereview?city=Rangareddy`;
+        case "WAIT":
+            return `Hi ${name}, reminder regarding your pending ${work} work.`;
+        case "CALL":
+            return `Hi ${name}, please call me regarding your ${work} work.`;
+        case "INTIMATED":
+            return `Hi ${name}, a gentle reminder regarding your ${work} work.`;
+        case "BAL":
+            return `Hi ${name}, your ${work} work has been completed successfully. An amount of Rs ${remark} is pending with regard to your work.`;
+        default:
+            return `Hi ${name}, please get in touch with us regarding ${work}.`;
+    }
+}
+function sendWhatsApp(phone, message) {
+    if (!phone) {
+        alert("Phone number not available.");
+        return;
+    }
+
+    // Clean phone number: remove spaces, dashes, brackets, and ensure country code
+    let formattedPhone = phone.replace(/[\s-()]/g, "");  // Remove special characters
+
+    // Add default country code if missing (Example: India +91)
+    if (!/^\d{10,15}$/.test(formattedPhone)) {
+        alert("Invalid phone number format: " + phone);
+        return;
+    }
+
+    // Prefill WhatsApp message
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${formattedPhone}?text=${encodedMessage}`;
+    window.open(whatsappURL, "_blank");
+}
+
+// Function to filter table rows based on dropdown selection
+function filterTable() {
+    let workFilter = document.getElementById("workFilter").value.toLowerCase();
+    let assignFilter = document.getElementById("assignFilter").value.toLowerCase();
+    let statusFilter = document.getElementById("statusFilter").value.toLowerCase();
+
+    let table = document.getElementById("dataTable");
+    let rows = table.getElementsByTagName("tr");
+
+    for (let i = 1; i < rows.length; i++) { // Start from 1 to skip header row
+        let cells = rows[i].getElementsByTagName("td");
+        let work = cells[3].innerText.toLowerCase();
+        let assign = cells[4].innerText.toLowerCase();
+        let status = cells[5].innerText.toLowerCase();
+
+        let showRow = 
+            (workFilter === "" || work.includes(workFilter)) &&
+            (assignFilter === "" || assign.includes(assignFilter)) &&
+            (statusFilter === "" || status.includes(statusFilter));
+
+        rows[i].style.display = showRow ? "" : "none";
+    }
+}
+
+        window.onload = fetchData;
+
+function editEntry(id, name, phone, email, work, assign, status, remark) {
+    const newName = prompt("Edit Name:", name);
+    const newPhone = prompt("Edit Phone:", phone);
+    const newEmail = prompt("Edit Email:", email);
+    const newWork = prompt("Edit Work:", work);
+    const newAssign = prompt("Edit Assign To:", assign);
+    const newStatus = prompt("Edit Status:", status);
+    const newRemark = prompt("Edit Remark:", remark);
+
+    fetch("https://script.google.com/macros/s/AKfycbyJ2wBo2BLrgoz7l1MjyRvrxuh5fO8nzSwMedoiEBlBE-01S7N6G76WOmrAnnG9d0cj_A/exec", {
+        method: "POST",
+        body: new URLSearchParams({
+            method: "PUT",
+            id: id,
+            name: newName,
+            phone: newPhone,
+            email: newEmail,
+            work: newWork,
+            assign: newAssign,
+            status: newStatus,
+            remark: newRemark
+        })
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);
+        fetchData();
+    })
+    .catch(error => alert("Error updating entry: " + error));
+}
+
+function deleteEntry(id) {
+    if (confirm("Are you sure you want to delete this entry?")) {
+        fetch("https://script.google.com/macros/s/AKfycbyJ2wBo2BLrgoz7l1MjyRvrxuh5fO8nzSwMedoiEBlBE-01S7N6G76WOmrAnnG9d0cj_A/exec", {
+            method: "POST",
+            body: new URLSearchParams({
+                method: "DELETE",
+                id: id
+            })
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+            fetchData();
+        })
+        .catch(error => alert("Error deleting entry: " + error));
+    }
+}
+
+
+    </script>
+</body>
+</html>
+
+</script>
+<div id="dataDisplay"></div>
+
+</body>
+</html>
