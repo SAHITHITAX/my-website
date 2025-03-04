@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahithi Tax Consultancy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #1d1d1f;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        header nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #1d1d1f;
+            font-weight: 500;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        header nav a:hover {
+            opacity: 1;
+        }
+        section {
+            padding: 100px 5%;
+        }
+
+.hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Optional dark overlay to improve text readability */
+    z-index: -1;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin: 10px 0 20px;
+}
+.btn {
+    padding: 14px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #007aff, #0056b3);
+    border: 2px solid transparent;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 1s ease, transform 1s ease;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: left s ease;
+    z-index: 0;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-5px); /* Slight hover lift */
+    background: linear-gradient(135deg, #0056b3, #007aff); /* Gradient flip */
+    box-shadow: 0 8px 20px rgba(0, 122, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+        .two-column {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .two-column img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+       .service-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: all 0.4s ease; /* Smooth transition */
+    position: relative;
+    z-index: 1;
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* Float up */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Bigger shadow for floating effect */
+}
+
+        .service-card h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .testimonial {
+            background: #fff;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            font-style: italic;
+            text-align: center;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .contact-form button {
+            padding: 12px 30px;
+            background: #0070c9;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 5%;
+            background: #f1f1f1;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+ body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .services-container {
+            background-color: #ffffff;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .services-container h1 {
+            text-align: center;
+            font-size: 28px;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+        .services-list {
+            list-style: none;
+            padding: 0;
+        }
+        .services-list li {
+            background: #f0f8ff;
+            margin: 10px 0;
+            padding: 15px 20px;
+            border-left: 5px solid #007BFF;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .services-list li:hover {
+            background: #e6f2ff;
+            transform: translateX(5px);
+        }
+        .services-list li strong {
+            color: #0056b3;
+            font-size: 16px;
+        }
+        .services-list li p {
+            margin: 5px 0 0;
+            color: #555;
+            font-size: 14px;
+        }
+body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .content {
+            background-color: #ffffff;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            font-size: 28px;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            color: #c0d9f4;
+            line-height: 1.6;
+        }
+        .services-list {
+            list-style: none;
+            padding: 0;
+        }
+        .services-list li {
+            background: #f0f8ff;
+            margin: 10px 0;
+            padding: 15px 20px;
+            border-left: 5px solid #007BFF;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .services-list li:hover {
+            background: #e6f2ff;
+            transform: translateX(5px);
+        }
+        .services-list li strong {
+            color: #0056b3;
+            font-size: 16px;
+        }
+        .services-list li p {
+            margin: 5px 0 0;
+            color: #555;
+            font-size: 14px;
+        }
+.service-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease, padding 0.3s ease;
+    background: #f9f9f9;
+    padding: 0 15px;
+    border-top: 1px solid #eee;
+    color: #555;
+    font-size: 14px;
+}
+.service-card.open .service-details {
+    max-height: 200px; /* Adjust based on content length */
+    padding: 15px;
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Sahithi Tax Consultancy</div>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Sahithi Tax Consultancy</h1>
+    <p>Expert Tax Solutions. Seamless Financial Guidance.</p>
+    <a href="#services" class="btn">Explore Services</a>
+
+</section>
+
+
+<section id="about">
+    <div class="two-column">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipOCW_cNQxLSiD2sQ50iuXgQ8seg39IrEqknnST1=s1360-w1360-h1020" >
+       <div class="content">
+    <h2>About us</h2>
+    <h3><strong>Sahithi Tax Consultancy</strong> is a leading provider of comprehensive financial services, specializing in <strong>income tax</strong> and <strong>GST compliance</strong>, as well as a range of related services. Our expertise encompasses a wide array of offerings including:</h3>
+    
+   </div>
+</div>
+</section>
+
+<section id="services">
+  <h2 style="text-align: center;">Our Services</h2>
+
+</br></br>
+   
+    <div class="services">
+        <div class="service-card"><h3>ITR Filing</h3></div>
+        <div class="service-card"><h3>TDS Filing</h3></div>
+       <div class="service-card" onclick="toggleDetails('pan-tan-details')">
+    <h3>PAN & TAN Services</h3>
+    <div class="service-details" id="pan-tan-details">
+        <p>PAN (Permanent Account Number) and TAN (Tax Deduction and Collection Account Number) are essential for tax compliance. We offer assistance with new applications, corrections, and linking PAN with Aadhaar for seamless compliance.</p>
+    </div>
+</div>
+
+        <div class="service-card"><h3>Tax Planning</h3></div>
+
+    </div>
+    </br>
+    <div class="services">
+
+
+        <div class="service-card"><h3>GST Registration</h3></div>
+        <div class="service-card"><h3>GST Return Filing</h3></div>
+    </div>
+</br>
+  
+    <div class="services">
+
+
+        <div class="service-card"><h3>EPF & ESI Registration</h3></div>
+        <div class="service-card"><h3>Labour Licence</h3></div>
+        <div class="service-card"><h3>MSME Certificate</h3></div>
+        <div class="service-card"><h3>EPF Withdrawal</h3></div>
+        <div class="service-card"><h3>Digital Signature (DSC)</h3></div>
+        <div class="service-card"><h3>Company Registration</h3></div>
+        <div class="service-card"><h3>LLP Registration</h3></div>
+        <div class="service-card"><h3>ROC Filings</h3></div>
+        <div class="service-card"><h3>PT Registration & Filing</h3></div>
+    </div>
+</section>
+
+
+<section id="contact">
+    <h2>Let’s Talk Taxes</h2>
+    <form class="contact-form">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<footer>
+    <p>Sahithi Tax Consultancy © 2025 All Rights Reserved</p>
+    <p>Follow us on: LinkedIn | WhatsApp | Instagram</p>
+</footer>
+<script>
+    document.querySelector('.btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetSection = document.querySelector('#services');
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+    });
+</script>
+
+
+</body>
+</html>
